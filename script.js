@@ -45,5 +45,12 @@ createApp({
     isCrossed(obj) {
       obj.done = !obj.done;
     },
+    finishedTasks() {
+      if (this.tasks.length === 0) {
+        return "img/source2.png";
+      } else {
+        return "img/source1.png";
+      }
+    },
   },
 }).mount("#app");

@@ -25,12 +25,22 @@ createApp({
           done: true,
         },
       ],
-      index: 0,
+      index: 4,
+      taskText: "",
     };
   },
   methods: {
     removeTask(index) {
       this.tasks.splice(index, 1);
+    },
+    newTask() {
+      this.index++;
+      this.tasks.push({
+        id: this.index,
+        text: this.taskText,
+        done: false,
+      });
+      console.log(this.tasks);
     },
   },
 }).mount("#app");

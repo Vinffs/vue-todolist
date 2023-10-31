@@ -23,6 +23,10 @@
     <div class="container">
       <header class="w-50 text-center mx-auto my-5">
         <img class="w-50" src="../img/source1.png" alt="toDoList">
+        <div class="my-4 d-flex justify-content-center align-content-center">
+          <input type="text" class="form-control mx-2 w-50 d-inline-block" v-model="taskText">
+          <button class=" btn btn-danger" @click="newTask">Add Task</button>
+        </div>
       </header>
       <main>
         <ul class="list-group">

@@ -24,7 +24,7 @@
       <header class="w-50 text-center mx-auto my-5">
         <img class="w-50" src="../img/source1.png" alt="toDoList">
         <div class="my-4 d-flex justify-content-center align-content-center">
-          <input type="text" class="form-control mx-2 w-50 d-inline-block" v-model="taskText">
+          <input type="text" class="form-control mx-2 w-50 d-inline-block" v-model="taskText" @keyup.enter="newTask">
           <button class=" btn btn-danger" @click="newTask">Add Task</button>
         </div>
       </header>
@@ -32,7 +32,8 @@
         <ul class="list-group">
           <li class="list-group-item list-group-item-action d-flex justify-content-between"
             v-for="(task, index) in tasks" :key="index">
-            <span :class="{'text-decoration-line-through': task.done}">{{tasks[index].text}}</span>
+            <span :class="{'text-decoration-line-through': task.done}" @click="isCrossed(task)"
+              style="cursor:pointer">{{tasks[index].text}}</span>
             <i class="fa-solid fa-trash fs-5" @click="removeTask(index)" style="cursor:pointer"></i>
           </li>
         </ul>

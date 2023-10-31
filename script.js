@@ -40,7 +40,10 @@ createApp({
         text: this.taskText,
         done: false,
       });
-      console.log(this.tasks);
+      this.taskText = "";
+    },
+    isCrossed(obj) {
+      obj.done = !obj.done;
     },
   },
 }).mount("#app");

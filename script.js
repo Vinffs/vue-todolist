@@ -25,7 +25,6 @@ createApp({
           done: true,
         },
       ],
-      index: 4,
       taskText: "",
     };
   },
@@ -34,13 +33,14 @@ createApp({
       this.tasks.splice(index, 1);
     },
     newTask() {
-      this.index++;
+      const newId = Math.max(...this.tasks.map((task) => task.id)) + 1;
       this.tasks.push({
-        id: this.index,
+        id: newId,
         text: this.taskText,
         done: false,
       });
       this.taskText = "";
+      console.log(this.tasks);
     },
     isCrossed(obj) {
       obj.done = !obj.done;
